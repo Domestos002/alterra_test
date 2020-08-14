@@ -1,0 +1,19 @@
+.btn
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  font-size: 14px
+  padding: 12px 18px
+  background-color: $purple
+  box-shadow: none
+  border: none
+  border-radius: 4px
+  color: #fff
+  cursor: pointer
+  +trans('background, color', .25s ease)
+  &:focus
+    border: none
+    box-shadow: 0 0 0 0.2rem rgba(lighten($purple, 20),.5)
+    outline: none
+  &:hover
+    background-color: darken($purple, 5)

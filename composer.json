@@ -1,0 +1,19 @@
+{
+  "name": "lamer/bee-jee-test",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Domestos002",
+      "email": "absorber000@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "twig/twig": "~3.0",
+    "vlucas/phpdotenv": "^5.1@dev",
+    "ext-pdo": "*",
+    "phpmailer/phpmailer": "dev-master",
+    "ext-json": "*"
+  }
+}

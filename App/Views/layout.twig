@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% if env == 'development' %}
+        <link rel="stylesheet" href="http://localhost:8081/css/{{ filename }}/{{ filename }}.css">
+    {% else %}
+        <link rel="stylesheet" href="/assets/css/{{ filename }}/{{ filename }}.css">
+    {% endif %}
+</head>
+<body>
+    <div class="site-wrapper">
+        <div class="main">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </div>
+    {% if env == 'development' %}
+        <script src="http://localhost:8081/js/{{ filename }}/{{ filename }}.js"></script>
+    {% else %}
+        <script src="/assets/js/{{ filename }}/{{ filename }}.js"></script>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,24 @@
+@import "~reset-css/sass/reset"
+@import "~@sass/variables"
+@import "~@sass/mixins"
+@import "~@sass/fonts"
+
+body
+  font-weight: 400
+  font-size: 14px
+  background-color: #ebeff5
+  font-family: $font-family-base
+
+.site-wrapper
+  padding-top: 50px
+
+.container
+  max-width: 320px
+  margin: 0 auto
+
+section
+  &:not(:first-child)
+    margin-top: 20px
+
+#toast-container>div
+  width: auto !important

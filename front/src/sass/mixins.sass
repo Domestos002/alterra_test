@@ -1,0 +1,99 @@
+$browser-context: 16
+
+@function em($pixels, $context: $browser-context)
+  @return #{$pixels/$context}em
+
+@function strip-unit($value)
+  @return $value / ($value * 0 + 1)
+
+=fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size)
+  $u1: unit($min-vw)
+  $u2: unit($max-vw)
+  $u3: unit($min-font-size)
+  $u4: unit($max-font-size)
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4
+    &
+      font-size: $min-font-size
+
+      @media screen and (min-width: $min-vw)
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}))
+
+      @media screen and (min-width: $max-vw)
+        font-size: $max-font-size
+
+@function get-vw($target)
+  $vw-context: (1000*.01) * 1px
+  @return ($target/$vw-context) * 1vw
+
+=respond-to($media)
+  @media only screen and (max-width: $media - 1)
+    @content
+
+=min-respond-to($media)
+  @media only screen and (min-width: $media)
+    @content
+
+=range-respond-to($start, $end)
+  @media only screen and (min-width: $start) and (max-width: $end - 1)
+    @content
+
+=trans($properties, $trans: .65s cubic-bezier(.18,.9,.58,1))
+  transition: $trans
+  transition-property: #{$properties}
+
+@function grid($columns, $totalColumns: 12)
+  @return 1%*100/$totalColumns*$columns
+
+=grid ($columns, $totalColumns: 12)
+  width: 1% * 100/$totalColumns * $columns
+
+=pos($var)
+  @if $var == tm
+    +transform(translateY(-50%))
+    top: 50%
+  @if $var == lm
+    +transform(translateX(-50%))
+    left: 50%
+  @if $var == m
+    +transform(translate3d(-50%, -50%, 0))
+    top: 50%
+    left: 50%
+
+=phc($color)
+  &::-webkit-input-placeholder
+    color: $color
+    opacity: 1
+  &::-moz-placeholder
+    color: $color
+    opacity: 1
+  &:-moz-placeholder
+    color: $color
+    opacity: 1
+  &:-ms-input-placeholder
+    color: $color
+    opacity: 1
+
+=chevron($size, $border-size, $direction, $color)
+  z-index: 1
+  content: ''
+  display: inline-block
+  width: $size
+  height: $size
+  background: transparent
+  @if $direction == t
+    border: transparent
+    border-top: $border-size solid $color
+    border-left: $border-size solid $color
+  @else if $direction == r
+    border: transparent
+    border-top: $border-size solid $color
+    border-right: $border-size solid $color
+  @else if $direction == b
+    border: transparent
+    border-bottom: $border-size solid $color
+    border-right: $border-size solid $color
+  @else if $direction == l
+    border: transparent
+    border-bottom: $border-size solid $color
+    border-left: $border-size solid $color

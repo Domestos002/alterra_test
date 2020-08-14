@@ -1,0 +1,35 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+    <section class="contact-form">
+        <div class="container">
+            <form class="contact-form__form" id="taskForm">
+                <p class="title">Добавить контакт</p>
+                <div class="contact-form__inner">
+                    <div class="contact-form__list">
+                        <div class="contact-form__block">
+                            <input class="form-control" id="inputName" name="name" placeholder="Имя" />
+                        </div>
+                        <div class="contact-form__block">
+                            <input class="form-control js-phone-mask" id="inputPhone" name="phone" placeholder="Телефон" />
+                        </div>
+                    </div>
+                    <div class="contact-form__submit">
+                        <button type="submit" class="btn contact-form__submit-btn">Добавить</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container contact__inner">
+            <p class="title">Список контактов</p>
+            <div id="taskList"></div>
+        </div>
+    </section>
+
+{% endblock %}

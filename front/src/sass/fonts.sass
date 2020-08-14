@@ -1,0 +1,14 @@
+=font($alias, $name, $fontWeight)
+  @font-face
+    font-family: $alias
+    src: url("/fonts/" + $name + ".woff") format("woff")
+    font-weight: $fontWeight
+    font-style: normal
+
+//+font("Gilroy", "Gilroy-Bold", 700)
+//+font("Gilroy", "Gilroy-Regular", 400)
+//+font("Gilroy", "Gilroy-Medium", 500)
+//+font("Gilroy", "Gilroy-Light", 300)
+//+font("Gilroy", "Gilroy-ExtraBold", 900)
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap')

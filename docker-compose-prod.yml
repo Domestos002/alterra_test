@@ -7,7 +7,6 @@ services:
       context: ./docker/nginx
     environment:
       - VIRTUAL_HOST=test.pstuffapp.com
-      - LETSENCRYPT_EMAIL=absorber000@gmail.com
     depends_on:
       - php
     volumes:
